@@ -119,3 +119,24 @@
   .site-header nav { gap: 10px; }
   .ticker { column-gap: 6px; font-size: 10px; letter-spacing: .03em; }
 }
+
+
+/* Keep the mobile photo caption clear of the date seal and the footer label intact. */
+@media (max-width: 700px) {
+  .photo-frame { margin-inline: 20px; }
+  .photo-note {
+    left: 9px;
+    right: 9px;
+    width: auto;
+    font-size: clamp(16px, 4.7vw, 19px);
+    line-height: 1.2;
+  }
+  .stamp { bottom: 104px; }
+  .hero-bottom { flex-wrap: wrap; gap: 16px; }
+  .hero-bottom > span {
+    max-width: none;
+    margin-left: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
