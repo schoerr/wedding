@@ -46,3 +46,76 @@
   aspect-ratio: 3/4;
   box-shadow: 0 14px 34px #34081726;
 }
+
+
+/* Font-independent arrows and consistent navigation alignment, including Safari. */
+.arrow-icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; }
+.arrow-icon--up-right { transform: rotate(-45deg); }
+.arrow-icon--left { transform: rotate(180deg); }
+.arrow-icon--down { transform: rotate(90deg); }
+.button, .dress-carousel-button { -webkit-appearance: none; appearance: none; }
+.dress-carousel-button .arrow-icon { width: 24px; height: 24px; }
+.site-header { gap: 16px; }
+.site-header nav { align-items: center; }
+.site-header nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 44px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.site-header nav .arrow-icon { width: 12px; height: 12px; }
+.monogram, .header-date { flex-shrink: 0; line-height: 1; white-space: nowrap; }
+.monogram { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* A readable keepsake band: one row on desktop, a compact composition on phones. */
+.ticker {
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: visible;
+  gap: 12px clamp(16px, 3vw, 45px);
+  padding-inline: 20px;
+  line-height: 1.6;
+  white-space: normal;
+  text-align: center;
+}
+.ticker > span { min-width: 0; overflow-wrap: anywhere; }
+.ticker .ticker-heart { font-family: var(--serif); font-size: 15px; }
+@media (max-width: 1050px) {
+  .ticker .ticker-repeat { display: none; }
+}
+@media (max-width: 700px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+  .site-header nav { justify-content: center; gap: 14px; min-width: 0; }
+  .ticker {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
+    gap: 12px 10px;
+    padding: 25px 20px 27px;
+    font-size: 11px;
+    letter-spacing: .06em;
+  }
+  .ticker .ticker-names {
+    grid-column: 1 / -1;
+    font-family: var(--serif);
+    font-size: 29px;
+    font-style: italic;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+  }
+  .ticker .ticker-heart--first { display: none; }
+  .ticker-date { grid-column: 1; }
+  .ticker-heart--middle { grid-column: 2; }
+  .ticker-city { grid-column: 3; }
+}
+@media (max-width: 370px) {
+  .site-header { gap: 8px; }
+  .site-header nav { gap: 10px; }
+  .ticker { column-gap: 6px; font-size: 10px; letter-spacing: .03em; }
+}
